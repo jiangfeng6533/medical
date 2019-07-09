@@ -1,0 +1,16 @@
+/* pages/foot/foot.wxss */
+@import "/wxParse/wxParse.wxss";
+.barpo{
+  position: fixed;
+  bottom: 0rpx;
+  width: 100%;
+}
+.MsoNormal{
+  padding-left:15rpx;
+  padding-right: 15rpx;
+  
+}
+page{
+  background: #fff;
+  font-size: 1rem;
+}

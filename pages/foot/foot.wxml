@@ -1,0 +1,9 @@
+<!--pages/foot/foot.wxml-->
+<cu-custom bgColor="bg-gradual-blue " isBack="{{true}}" >
+  <view slot="backText" bindtap='toback'>返回</view>
+  <view slot="content">食谱</view>
+</cu-custom>
+<import src="../../wxParse/wxParse.wxml"/>
+<view style="margin-top:25rpx;"></view>
+<template  is="wxParse" data="{{wxParseData:article.nodes}}"/>
+

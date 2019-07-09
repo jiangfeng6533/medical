@@ -1,0 +1,46 @@
+<!--pages/manger/sick.wxml-->
+<cu-custom bgColor="bg-gradual-blue">
+  <view slot="content">小佟管家</view>
+</cu-custom>
+<view class="padding-ms grid col-2">
+
+  <view class="padding-sm ">
+    <view class="bg-gradual-blue padding-sm radius text-center shadow-blur">
+      <view class="text-lg flex margin-bottom-sm">
+        <view class="grid col-1  margin-right-sm text-left" >
+          <button  class="cu-avatar lg round " style="background-image:url('https://ossweb-img.qq.com/images/lol/web201310/skin/big25002.jpg');"></button>
+        </view>
+        <view class="grid  col-1  text-left" >
+          <view class="text-sm " >姓名：张三丰</view>
+          <view class=" text-sm" >年龄：44</view>
+          <view class=" text-sm" >性别：男</view>
+        </view>
+        
+      </view>
+      <view class="margin-top-sm text-Abc">开始时间：2019.04.20</view>
+    </view>
+  </view>
+
+  <view class="padding-sm ">
+    <view class="bg-gradual-blue padding-sm radius text-center shadow-blur">
+      <view class="text-lg flex margin-bottom-sm">
+        <view class="grid col-1  margin-right-sm text-left" >
+          <button  class="cu-avatar lg round " style="background-image:url('https://ossweb-img.qq.com/images/lol/web201310/skin/big25002.jpg');"></button>
+        </view>
+        <view class="grid  col-1  text-left" >
+          <view class="text-sm " >姓名：张三丰</view>
+          <view class=" text-sm" >年龄：44</view>
+          <view class=" text-sm" >性别：男</view>
+        </view>
+        
+      </view>
+      <view class="margin-top-sm text-Abc">开始时间：2019.04.20</view>
+    </view>
+  </view>
+  <view class="padding-sm">
+    <view class="bg-gradual-blue padding radius text-center shadow-blur">
+      <view class="text-lg">靛青</view>
+      <view class="margin-top-sm text-Abc">#0081ff - #1cbbb4</view>
+    </view>
+  </view>
+</view>

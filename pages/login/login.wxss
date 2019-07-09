@@ -1,0 +1,4 @@
+/* pages/login/login.wxss */
+.ub-ma-top{
+  margin-top:20rpx;
+}

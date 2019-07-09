@@ -1,0 +1,178 @@
+<cu-custom bgColor="bg-gradual-blue">
+  <view slot="content">宇博机电</view>
+</cu-custom>
+<view class="padding">
+  <view class="cu-bar bg-white solid-bottom">
+    <view class="action">
+      <text class="cuIcon-title text-blue"></text>健康信息
+    </view>
+  </view>
+
+  <view class="padding-xl radius shadow-warp bg-white margin-top">
+    <view class="flex p-xs margin-bottom-sm mb-sm">
+
+      <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="cu-avatar lg round " style="background-image:url({{userInfo.avatarUrl?userInfo.avatarUrl:'https://ossweb-img.qq.com/images/lol/web201310/skin/big25002.jpg'}});"></button>
+      <view class='text-center'>
+        <view class="padding text-grey text-xl">{{userInfo.nickName?'Hi '+userInfo.nickName+'!':''}}</view>
+      </view>
+    </view>
+    <view class="flex p-xs margin-bottom-sm mb-sm">
+      <view class="flex-sub bg-white  margin-xs radius">姓名:</view>
+      <view class="flex-twice bg-white  margin-xs radius">{{userinfo.name}}</view>
+      <view class="flex-sub bg-white  margin-xs radius">性别:</view>
+      <view class="flex-twice bg-white  margin-xs radius">{{userinfo.sex==1?'男':'女'}}</view>
+
+    </view>
+    <view class="flex  p-xs margin-bottom-sm mb-sm">
+      <view class="flex-sub bg-white  margin-xs radius">年龄:</view>
+      <view class="flex-twice bg-white  margin-xs radius">{{userinfo.age}}</view>
+      <view class="flex-sub bg-white  margin-xs radius">病史:</view>
+      <view class="flex-twice bg-white  margin-xs radius">{{userinfo.years}}年</view>
+    </view>
+
+  </view>
+</view>
+
+
+<view class="flex solid-bottom padding justify-center">
+  <view class=" padding-sm margin-xs  bg-cyan   padding radius  text-center shadow-blur" style="width:30%;padding:20rpx;">健康数据</view>
+</view>
+
+
+
+
+<scroll-view scroll-x="true" class='scrollClass'>
+  <view class='table'>
+    <view class='table_header'>
+      <view class="th" style='width:130rpx;background-color:white'>
+        <view class='centerclass cell_label'>时间</view>
+      </view>
+
+      <view class='th'>
+        <view class="cell_label centerclass">空腹</view>
+        <view class="cell_date_label centerclass">血糖</view>
+      </view>
+
+      <view class='th'>
+        <view class="cell_label centerclass">餐后2H</view>
+        <view class="cell_date_label centerclass">血糖</view>
+      </view>
+      <view class='th'>
+        <view class="cell_label centerclass">睡前</view>
+        <view class="cell_date_label centerclass">血糖</view>
+      </view>
+      <view class='th'>
+        <view class="cell_label centerclass">血压</view>
+      </view>
+     <view class='th'>
+        <view class="cell_label centerclass">早</view>
+        <view class="cell_date_label centerclass">胰岛素</view>
+      </view>
+      <view class='th'>
+        <view class="cell_label centerclass">中</view>
+        <view class="cell_date_label centerclass">胰岛素</view>
+      </view>
+      <view class='th'>
+        <view class="cell_label centerclass">晚</view>
+        <view class="cell_date_label centerclass">胰岛素</view>
+      </view>
+      <view class='th' style="width:200rpx;">
+        <view class="cell_label centerclass" >药物名称</view>
+      </view>
+      <view class='th'>
+        <view class="cell_label centerclass" >备注信息</view>
+      </view>
+      
+    </view>
+    <block wx:for="{{sidata}}">
+    <view class='table_main'>
+      
+      <view class="td" style='width:130rpx;background-color:white'>
+        <view class='centerclass cell_label'>{{item.ctime}}</view>
+      </view>
+
+      <view class='td'>
+        <view class="cell_label centerclass">{{item.xt_morning_before}}</view>
+        
+      </view>
+      <view class='td'>
+        <view class="cell_label centerclass">{{item.xt_lunch_after}}</view>
+        
+      </view>
+      <view class='td'>
+        <view class="cell_label centerclass">{{item.xt_sleep_before}}</view>
+      </view>
+      <view class='td'>
+        <view class="cell_label centerclass">{{item.blood}}</view>
+      </view>
+      <view class='td'>
+        <view class="cell_label centerclass">{{item.yds_morning_before}}</view>
+      </view>
+      <view class='td'>
+        <view class="cell_label centerclass">{{item.yds_lunch_after}}</view>
+      </view>
+      <view class='td'>
+        <view class="cell_label centerclass">{{item.yds_sleep_before}}</view>
+      </view>
+      <view class='td' style="width:200rpx;">
+        <view class="cell_label centerclass" style="white-space: pre-wrap;">{{item.drugname}}</view>
+      </view>
+      <view class='td' >
+        <view class="cell_label centerclass" style="white-space: pre-wrap;">{{item.remark}}</view>
+      </view>
+      
+    </view>
+    </block>
+  </view>
+</scroll-view>
+
+
+<view class="flex solid-bottom padding justify-center">
+  <view class=" padding-sm margin-xs  bg-cyan   padding radius  text-center shadow-blur" style="width:30%;padding:20rpx;">每日数据</view>
+</view>
+
+<view class="container bg-white padding radius text-center shadow-blur" style="">
+  <canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchHandler" bindtouchmove="moveHandler" bindtouchend="touchEndHandler"></canvas>
+</view>
+
+<view class="margin-xs text-gray text-center" bindtap='toman'>数据只对本人与医师参考对比。</view>
+
+
+<view style="height:150rpx;"></view>
+<view class="box barpo">
+  <view class="cu-bar tabbar bg-white">
+    <view class="action">
+
+      <view class="cuIcon-cu-image">
+        <image src="/images/tabbar/about_cur.png"></image>
+      </view>
+      <view class="text-green">健康</view>
+
+    </view>
+    <view class="action">
+      <navigator
+    url="/pages/foot/foot"
+    open-type="redirect"
+    hover-class="other-navigator-hover">
+      <view class="cuIcon-cu-image">
+        <image src="/images/tabbar/component.png"></image>
+      </view>
+      <view class="text-gray">膳食</view>
+      </navigator>
+    </view>
+    <view class="action">
+    <navigator
+    url="/pages/timeline/timeline"
+    open-type="redirect"
+    hover-class="other-navigator-hover">
+      <view class="cuIcon-cu-image">
+      
+        <image src="/images/tabbar/plugin.png"></image>
+        <view class="cu-tag badge">99</view>
+      </view>
+      <view class="text-gray">规划</view>
+      </navigator>
+    </view>
+    
+  </view>
+</view>

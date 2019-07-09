@@ -1,0 +1,12 @@
+<!--pages/login/login.wxml-->
+<view class="ub ub-pc">
+  <image src='/images/medicalban.jpg' mode='widthFix' style="margin:0 auto;width:100%;"></image><!-- 默认图片 -->
+</view>
+
+<view class="btn-area" id="buttonContainer">
+      <button type="primary" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"  style="width:90%">
+        <view class="fa fa-wechat"></view>
+        微信用户一键登录
+      </button>
+      
+</view>
